@@ -37,7 +37,7 @@ class CosmosLayersTests: XCTestCase {
     settings.filledBorderColor = UIColor.cyan
     settings.filledBorderWidth = 1.72
 
-    let result = CosmosLayers.createPartialStar(0.8, settings: settings, isRightToLeft: false)
+      let result = CosmosLayers.createPartialStar(0.8, settings: settings, isRightToLeft: false, at: 0)
     
     XCTAssertEqual(2, result.sublayers!.count)
     
@@ -89,7 +89,7 @@ class CosmosLayersTests: XCTestCase {
     settings.emptyBorderColor = UIColor.gray
 
     
-    let result = CosmosLayers.createCompositeStarLayer(1, settings: settings, isRightToLeft: false) as CALayer
+      let result = CosmosLayers.createCompositeStarLayer(1, settings: settings, isRightToLeft: false, at: 0) as CALayer
   
     XCTAssertEqual(1, result.sublayers!.count)
 
@@ -114,7 +114,7 @@ class CosmosLayersTests: XCTestCase {
     settings.emptyBorderColor = UIColor.blue
     settings.emptyBorderWidth = 1.31
     
-    let result = CosmosLayers.createCompositeStarLayer(0, settings: settings, isRightToLeft: false) as CALayer
+      let result = CosmosLayers.createCompositeStarLayer(0, settings: settings, isRightToLeft: false, at: 0) as CALayer
     
     XCTAssertEqual(1, result.sublayers!.count)
     
@@ -145,7 +145,7 @@ class CosmosLayersTests: XCTestCase {
     settings.filledBorderColor = UIColor.magenta
     settings.filledBorderWidth = 0.41
 
-    let result = CosmosLayers.createCompositeStarLayer(0.2, settings: settings, isRightToLeft: false)
+      let result = CosmosLayers.createCompositeStarLayer(0.2, settings: settings, isRightToLeft: false, at: 0)
     
     XCTAssertEqual(2, result.sublayers!.count)
     

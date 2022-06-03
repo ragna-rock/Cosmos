@@ -74,6 +74,42 @@ public struct CosmosSettings {
    
    */
   public var emptyImage: UIImage? = nil
+    
+  // MARK: - Star multi images settings
+  // -----------------------------
+
+  /**
+
+  Images used for the filled portion of the stars. By default the star is drawn from the array of points unless an images are supplied.
+
+  */
+  public var filledImages: [UIImage]? = nil
+
+  /**
+   
+   Images used for the empty portion of the stars. By default the star is drawn from the array of points unless an images are supplied.
+   
+   */
+  public var emptyImages: [UIImage]? = nil
+  
+  
+  func resolveFilledImage(at index: Int) -> UIImage? {
+    guard filledImages?.isEmpty == false else {
+      return filledImage
+    }
+    
+    let imagesCount = filledImages?.count ?? 1
+    return filledImages?[index % imagesCount]
+  }
+
+  func resolveEmptyImage(at index: Int) -> UIImage? {
+    guard emptyImages?.isEmpty == false else {
+      return emptyImage
+    }
+    
+    let imagesCount = emptyImages?.count ?? 1
+    return emptyImages?[index % imagesCount]
+  }
   
   // MARK: - Text settings
   // -----------------------------

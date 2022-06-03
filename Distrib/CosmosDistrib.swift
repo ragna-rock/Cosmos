@@ -524,12 +524,12 @@ class CosmosLayers {
 
     var starLayers = [CALayer]()
 
-    for _ in (0..<settings.totalStars) {
+    for index in (0..<settings.totalStars) {
       
       let fillLevel = CosmosRating.starFillLevel(ratingRemainder: ratingRemander,
         fillMode: settings.fillMode)
       
-      let starLayer = createCompositeStarLayer(fillLevel, settings: settings, isRightToLeft: isRightToLeft)
+      let starLayer = createCompositeStarLayer(fillLevel, settings: settings, isRightToLeft: isRightToLeft, at: index)
       starLayers.append(starLayer)
       ratingRemander -= 1
     }
@@ -551,17 +551,17 @@ class CosmosLayers {
   
   */
   class func createCompositeStarLayer(_ starFillLevel: Double,
-                                      settings: CosmosSettings, isRightToLeft: Bool) -> CALayer {
+                                      settings: CosmosSettings, isRightToLeft: Bool, at index: Int) -> CALayer {
 
     if starFillLevel >= 1 {
-      return createStarLayer(true, settings: settings)
+      return createStarLayer(true, settings: settings, at: index)
     }
 
     if starFillLevel == 0 {
-      return createStarLayer(false, settings: settings)
+      return createStarLayer(false, settings: settings, at: index)
     }
 
-    return createPartialStar(starFillLevel, settings: settings, isRightToLeft: isRightToLeft)
+      return createPartialStar(starFillLevel, settings: settings, isRightToLeft: isRightToLeft, at: index)
   }
 
   /**
@@ -577,9 +577,9 @@ class CosmosLayers {
   - returns: Layer that contains the partially filled star.
   
   */
-  class func createPartialStar(_ starFillLevel: Double, settings: CosmosSettings, isRightToLeft: Bool) -> CALayer {
-    let filledStar = createStarLayer(true, settings: settings)
-    let emptyStar = createStarLayer(false, settings: settings)
+    class func createPartialStar(_ starFillLevel: Double, settings: CosmosSettings, isRightToLeft: Bool, at index: Int) -> CALayer {
+    let filledStar = createStarLayer(true, settings: settings, at: index)
+        let emptyStar = createStarLayer(false, settings: settings, at: index)
 
 
     let parentLayer = CALayer()
@@ -601,8 +601,8 @@ class CosmosLayers {
     return parentLayer
   }
 
-  private class func createStarLayer(_ isFilled: Bool, settings: CosmosSettings) -> CALayer {
-    if let image = isFilled ? settings.filledImage : settings.emptyImage {
+    private class func createStarLayer(_ isFilled: Bool, settings: CosmosSettings, at index: Int) -> CALayer {
+    if let image = isFilled ? settings.resolveFilledImage(at: index) : settings.resolveEmptyImage(at: index) {
       // Create a layer that shows a star from an image
       return StarLayer.create(image: image, size: settings.starSize)
     }
@@ -1071,6 +1071,42 @@ public struct CosmosSettings {
    
    */
   public var emptyImage: UIImage? = nil
+    
+  // MARK: - Star multi images settings
+  // -----------------------------
+
+  /**
+
+  Images used for the filled portion of the stars. By default the star is drawn from the array of points unless an images are supplied.
+
+  */
+  public var filledImages: [UIImage]? = nil
+
+  /**
+   
+   Images used for the empty portion of the stars. By default the star is drawn from the array of points unless an images are supplied.
+   
+   */
+  public var emptyImages: [UIImage]? = nil
+  
+  
+  func resolveFilledImage(at index: Int) -> UIImage? {
+    guard filledImages?.isEmpty == false else {
+      return filledImage
+    }
+    
+    let imagesCount = filledImages?.count ?? 1
+    return filledImages?[index % imagesCount]
+  }
+
+  func resolveEmptyImage(at index: Int) -> UIImage? {
+    guard emptyImages?.isEmpty == false else {
+      return emptyImage
+    }
+    
+    let imagesCount = emptyImages?.count ?? 1
+    return emptyImages?[index % imagesCount]
+  }
   
   // MARK: - Text settings
   // -----------------------------

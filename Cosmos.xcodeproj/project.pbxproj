@@ -112,7 +112,7 @@
 		2B622ECC1B37BB700090D81B /* StarLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarLayer.swift; sourceTree = "<group>"; };
 		2B622ECD1B37BB700090D81B /* CosmosText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosText.swift; sourceTree = "<group>"; };
 		2B622ECE1B37BB700090D81B /* CosmosLayerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLayerHelper.swift; sourceTree = "<group>"; };
-		2B622ECF1B37BB700090D81B /* CosmosSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSettings.swift; sourceTree = "<group>"; };
+		2B622ECF1B37BB700090D81B /* CosmosSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CosmosSettings.swift; sourceTree = "<group>"; tabWidth = 2; };
 		2B622ED01B37BB700090D81B /* CosmosDefaultSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDefaultSettings.swift; sourceTree = "<group>"; };
 		2B622ED11B37BB700090D81B /* CosmosSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSize.swift; sourceTree = "<group>"; };
 		2B622ED21B37BB700090D81B /* CosmosTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTouch.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		2B622EF91B37BC120090D81B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B622EFC1B37BC120090D81B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B622EFE1B37BC120090D81B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B622F021B37BC270090D81B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2B622F021B37BC270090D81B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		2B622F0E1B37BE780090D81B /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		2BC473541B9D3F4900BDF89F /* CosmosLocalizedRatingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLocalizedRatingTests.swift; sourceTree = "<group>"; };
 		2BC473561B9D3F9400BDF89F /* CosmosLocalizedRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLocalizedRating.swift; sourceTree = "<group>"; };
